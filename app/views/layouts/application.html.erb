@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blog</title>
+        <%= stylesheet_link_tag :all %>
+        <%= javascript_include_tag :defaults %>
+        <%= csrf_meta_tag %>
+    </head>
+    <body>
+        <div id="outer-wrapper">
+            <div id="wrap2">
+                <div id='header-wrapper'>
+                    <div class='header section' id='header'>
+                        <div class='widget Header' id='Header1'>
+                            <div id='header-inner'>
+                                <div class='titlewrapper'>
+                                    <h1 class='title'>Paul Leathem</h1>
+                                </div>
+                                <div class='descriptionwrapper'>
+                                    <p class='description'>
+                                        <span>Life, liberty, and the pursuit of happiness</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="main" class="main section">
+                        <div id="Blog1" class="widget Blog">
+                            <%= yield %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

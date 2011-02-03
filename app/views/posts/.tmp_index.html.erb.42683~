@@ -1,0 +1,30 @@
+<% @posts.each do |post| %>
+<div class="date-outer">
+    <h2 class='date-header'><span></span></h2>
+    <div class="date-posts">
+        <div class='post-outer'>
+            <div class='post hentry'>
+                <h3 class='post-title entry-title'><%= link_to post.title, post %>
+                </h3>
+                <div class='post-body entry-content'>
+                    <%= post.content[1,200] %>...
+                    <div style='clear: both;'>
+                    </div>
+                </div>
+                <div class='post-footer'>
+                    <div class='post-footer-line post-footer-line-1'>
+                        <span class='post-author vcard'>Posted by&nbsp;<span class='fn'><%= post.name %></span></span>
+                        <span class='post-comment-link'><%= link_to 'Show', post %>&nbsp;|&nbsp;<%= link_to 'Edit', edit_post_path(post) %>&nbsp;|&nbsp;<%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></span>
+                    </div>
+                    <div class='post-footer-line post-footer-line-2'>
+                        <span class='post-labels'>Tags:&nbsp;<%= join_tags(post) %></span>
+                    </div>
+                    <div class='post-footer-line post-footer-line-3'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>
+<%= link_to 'New Post', new_post_path %>

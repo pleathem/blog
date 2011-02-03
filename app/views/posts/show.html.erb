@@ -1,0 +1,37 @@
+<div class="date-outer">
+	<p id="notice"><%= notice %></p>
+    <h2 class='date-header'><span></span></h2>
+    <div class="date-posts">
+        <div class='post-outer'>
+            <div class='post hentry'>
+                <h3 class='post-title entry-title'><%= link_to @post.title, @post %>
+                </h3>
+                <div class='post-body entry-content'>
+                    <%= @post.content %>
+                    <div style='clear: both;'>
+                    </div>
+                </div>
+                <div class='post-footer'>
+                    <div class='post-footer-line post-footer-line-1'>
+                        <span class='post-author vcard'>Posted by&nbsp;<span class='fn'><%= @post.name %></span></span>
+                    </div>
+                    <div class='post-footer-line post-footer-line-2'>
+                        <span class='post-labels'>Tags:&nbsp;<%= join_tags(@post) %></span>
+                    </div>
+                    <div class='post-footer-line post-footer-line-3'>
+                    </div>
+                </div>
+            </div>
+        	<div class='comments' id='comments'>
+				<h4>comments:</h4>
+				<%=  render :partial  => "comments/comment",
+           					:collection => @post.comments %>
+				<div class='comment-form'>
+					<h4>post a comment:</h4>
+					<%=  render "comments/form"  %>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+<%= link_to 'Edit', edit_post_path(@post) %>&nbsp;|&nbsp;<%= link_to 'Back', posts_path %>
